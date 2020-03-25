@@ -2,6 +2,7 @@
 '**C**ascading **S**tyle **S**heets'의 약자. HTML 문서를 꾸밀 때 사용하는 언어.
 
 # 사용법 #
+* inline은 별도의 우선순위를 갖지만, internal과 external은 우선순위가 동등함.
 1. `<style>`태그를 문서의 `<head>`안에 작성.
     ```html
     <head>
