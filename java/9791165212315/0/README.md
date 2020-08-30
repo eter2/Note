@@ -4,7 +4,7 @@
 
 > 객체 지향을 적용하고 클래스와 인터페이스 사용 여부 확인하기 위해 확장
 
-> FizzBuzz 알고리즘을 FizzBuzz라는 인터페이스를 구현하는 ConsoleBasedFizzBuzz라는 클래스로 구현해야 함. 이 인터페이스는 추력할 처음과 마지막 숫자를 인수로 받는 메서드를 제공. 별개의 Main 클래스에 들어 있는 main 메서드에서는 1부터 콘솔에서 전달받은 값까지 세는 ConsoleBasedFizzBuzz 구현과 함께 FizzBuzz 인터페이스를 사용해야 함.
+> FizzBuzz 알고리즘을 FizzBuzz라는 인터페이스를 구현하는 ConsoleBasedFizzBuzz라는 클래스로 구현해야 함. 이 인터페이스는 출력할 처음과 마지막 숫자를 인수로 받는 메서드를 제공. 별개의 Main 클래스에 들어 있는 main 메서드에서는 1부터 콘솔에서 전달받은 값까지 세는 ConsoleBasedFizzBuzz 구현과 함께 FizzBuzz 인터페이스를 사용해야 함.
 
 간략한 개요
 ```java
