@@ -4,6 +4,7 @@
 1. [우선 정리부터](#우선-정리부터)
 1. [코드 스타일 레벨 업](#코드-스타일-레벨-업)
 1. [슬기롭게 주석 사용하기](#슬기롭게-주석-사용하기)
+1. [올바르게 명명하기](#올바르게-명명하기)
 
 ## 우선 정리부터
 * 쓸모없는 비교 피하기
@@ -44,3 +45,18 @@
 * 패키지를 JavaDoc으로 구조화하기
 * 클래스와 인터페이스를 JavaDoc으로 구조화하기
 * 메서드를 JavaDoc으로 구조화하기
+
+## 올바르게 명명하기
+* 자바 명명 규칙 사용하기
+    * [참고 페이지](http://www.oracle.com/technetwork/java/codeconventions-150003.pdf)
+    * 클래스: 대문자로 시작
+    * 상수: 모두 대문자, 밑줄로 구분 (ex. WALKING_SPEED)
+    * 메서드: 동사로 명명하거나 동사로 시작(is, has, save, get, set 등)
+    * 변수: 명사(ex. serialNumber)
+    * 패키지: 대문자 사용하지 않음
+* 프레임워크에는 Getter/Setter 규칙 적용
+    * [참고 페이지](http://download.oracle.com/otndocs/jcp/7224-javabeans-1.01-fr-spec-oth-JSpec/)
+* 한 글자로 명명하지 않기
+* 축약 쓰지 않기
+* 무의미한 용어 쓰지 않기
+* 도메인 용어 사용하기
