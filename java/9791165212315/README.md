@@ -5,6 +5,8 @@
 1. [코드 스타일 레벨 업](#코드-스타일-레벨-업)
 1. [슬기롭게 주석 사용하기](#슬기롭게-주석-사용하기)
 1. [올바르게 명명하기](#올바르게-명명하기)
+1. [문제 발생에 대비하기](#문제-발생에-대비하기)
+1. [올바르게 드러내기](#올바르게-드러내기)
 
 ## 우선 정리부터
 * 쓸모없는 비교 피하기
@@ -60,3 +62,50 @@
 * 축약 쓰지 않기
 * 무의미한 용어 쓰지 않기
 * 도메인 용어 사용하기
+
+## 문제 발생에 대비하기
+* 빠른 실패
+* 항상 가장 구체적인 예외 잡기
+* 메시지로 원인 설명
+* 원인 사슬 깨지 않기
+* 변수로 원인 노출
+* 타입 변환 전에 항상 타입 검증하기
+    * 비 원시 자바 타입은 모두 `Object`로부터 상속받기 때문에 지역 변수 타입을 `Object`로 한다면 실패 없음
+    * `instanceof` 연산자로 타입을 검증
+        * `instanceof` : `a instanceof b`로 사용. a를 b 타입으로 변환할 수 있으면 true, 하지 못하면 false 반환.
+    * 프로그램이 외부와 상호작용할 때 예상하지 못한 입력을 처리하도록 대비
+* 항상 자원 닫기
+    * `try-with-resources` 이용: try 범위 내에서 자원을 쓰고, 블록이 끝나면 `close()` 호출
+        * `AutoCloseable` 인터페이스를 구현한 클래스여야 동작
+* 항상 다수 자원 닫기
+* 빈 catch 블록 설명하기
+    * 변수명을 `ignored`로 변경
+    * 주석 추가
+
+## 올바르게 드러내기
+* Given-When-Then으로 테스트 구조화
+    * ~가 주어졌을 때(given) - ~를 ~한 경우(when) - 그러면(then) ~다
+    * 메서드에 `@Test` 표기 추가하면 JUnit이 테스트로 실행
+* 의미 있는 어서션 사용하기
+* 실제 값보다 기대 값을 먼저 보이기
+* 합당한 허용값 사용하기
+    * float나 double을 사용할 때 허용 수준을 명시
+        * 돈에는 부동소수점 연산을 하지 말자
+        * long 변수에 저장하거나 BigDecimal 사용
+* 예외 처리는 JUnit에 맡기기
+* 테스트 설명하기
+    * 메서드 명을 명확하게 수정
+    * JUnit5 사용
+        * `@DisplayName`을 이용해 설명 작성
+        * `@Disabled` 형식을 이용해 비활성화 이유 작성
+* 독립형 테스트 사용하기
+    * `@BeforeEach`와 `@BeforeAll` 사용 최소화
+    * 테스트 전체를 설정하는 클래스 생성
+* 테스트 매개변수화
+    * 매개변수화 해서 매개변수를 실제 테스트 코드와 분리
+* 경계 케이스 다루기
+    * String: null(null 참조), ""(빈 문자열), " "(여백 문자만 포함하는 문자열), 영문자가 아닌 특수문자를  포함하는 String
+    * int: 0, 1, -1, Integer.MAX_VALUE, Integer.MIN_VALUE
+    * double: 0, 1.0, -1.0, Double.MAX_VALUE, Double.MIN_VALUE
+    * Object[]: null, {}, {null}, {new object(), null}
+    * List<Object>: null, Collections.emptyList(), Collections.singletonList(null), Arrays.asList(new Object(), null)
